@@ -38,6 +38,9 @@ def solve_puzzle(puzzle, start, end):
         path = path_get(new_puzzle, bfs_path, num_rows, num_colum)
         directional_path = get_directions(path)
 
+        if directional_path is None:
+            return path
+
     return path, directional_path
 
 
@@ -230,6 +233,11 @@ def BFS(graph, start, goal):
 
 
 def get_directions(tuples):
+
+    if tuples is None:
+        return None
+
+
     cardinal = ''
 
     past_vector = tuples[0]
@@ -262,39 +270,6 @@ def get_directions(tuples):
 
 
 
-
-Puzzle = [
- ['-', '-', '-', '-'],
- ['-', '-', '-', '-'],
- ['-', '-', '-', '-'],
- ['-', '-', '-', '-']
-]
-
-Puzzle_1 = [
- ['#', '#', '#'],
- ['-', '#', '-'],
- ['#', '-', '#']
-]
-
-import itertools
-
-# Define the matrix
-matrix = [(i, j) for i in range(3) for j in range(3)]
-
-# Generate all possible combinations of the matrix
-combinations = list(itertools.combinations(matrix, 2))
-
-# Print the combinations
-start = (0, 1)
-end = (1, 1)
-
-#for i in range(len(combinations)):
-#    couple = combinations[i]
-#    start = couple[0]
-#    end = couple[1]
-#    print(solve_puzzle(Puzzle_1, start, end))
-
-print(solve_puzzle(Puzzle_1, start, end))
 
 
 
