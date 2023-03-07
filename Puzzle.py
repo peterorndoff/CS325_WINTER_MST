@@ -7,7 +7,6 @@ def solve_puzzle(puzzle, start, end):
     if start == end:
         return None
 
-
     if puzzle[start[0]][start[1]] == '#':
         return None
 
@@ -23,6 +22,12 @@ def solve_puzzle(puzzle, start, end):
     int_end = end[0] * num_colum + end[1]
 
     if new_puzzle[end[0]][end[1]] is None:
+        return None
+
+    if len(graph[int_end]) is None:
+        return None
+
+    if len(graph[start]) is None:
         return None
 
     if len(graph[int_end]) == 0 or len(graph[start]) == 0:
@@ -256,6 +261,40 @@ def get_directions(tuples):
             current_vector = tuples[k + 1]
 
 
+
+
+Puzzle = [
+ ['-', '-', '-', '-'],
+ ['-', '-', '-', '-'],
+ ['-', '-', '-', '-'],
+ ['-', '-', '-', '-']
+]
+
+Puzzle_1 = [
+ ['#', '#', '#'],
+ ['-', '#', '-'],
+ ['#', '-', '#']
+]
+
+import itertools
+
+# Define the matrix
+matrix = [(i, j) for i in range(3) for j in range(3)]
+
+# Generate all possible combinations of the matrix
+combinations = list(itertools.combinations(matrix, 2))
+
+# Print the combinations
+start = (0, 1)
+end = (1, 1)
+
+#for i in range(len(combinations)):
+#    couple = combinations[i]
+#    start = couple[0]
+#    end = couple[1]
+#    print(solve_puzzle(Puzzle_1, start, end))
+
+print(solve_puzzle(Puzzle_1, start, end))
 
 
 
