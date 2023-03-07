@@ -4,6 +4,7 @@
 
 def solve_puzzle(puzzle, start, end):
 
+
     if puzzle[start[0]][start[1]] == '#':
         return None
 
@@ -24,7 +25,9 @@ def solve_puzzle(puzzle, start, end):
     else:
         bfs_path = BFS(graph, start, int_end)
         path = path_get(new_puzzle, bfs_path, num_rows, num_colum)
-    return path
+        directional_path = get_directions(path)
+
+    return path, directional_path
 
 
 def path_get(puzzle, bfs_path, num_rows, num_columns, i=None, j=None, path=None, bfs_index=None, increment=None):
@@ -219,3 +222,67 @@ def BFS(graph, start, goal):
                     return new_path
 
             explored.append(node)
+
+def get_directions(tuples):
+
+    cardinal = ''
+
+    past_vector = tuples[0]
+    current_vector = tuples[0]
+
+    vectors = [[0, 0], [1, 0], [0, 1], [1, 1]]
+
+    for k in range(len(tuples)):
+
+
+        if current_vector[0] != past_vector[0]:
+            cardinal += 'R'
+
+        if current_vector[1] != past_vector[1]:
+
+            if current_vector[1] > past_vector[1]:
+                cardinal += 'D'
+            else:
+                cardinal += 'U'
+
+        if k+1 == len(tuples):
+            return cardinal
+
+        else:
+            past_vector = tuples[k]
+            current_vector = tuples[k+1]
+
+
+Puzzle = [
+ ['-', '-', '-', '-'],
+ ['-', '-', '-', '-'],
+ ['-', '-', '-', '-'],
+ ['-', '-', '-', '-']
+]
+
+Puzzle_1 = [
+ ['-', '-', '-'],
+ ['-', '-', '-'],
+ ['-', '-', '-']
+]
+
+import itertools
+
+# Define the matrix
+matrix = [(i, j) for i in range(3) for j in range(3)]
+
+# Generate all possible combinations of the matrix
+combinations = list(itertools.combinations(matrix, 2))
+
+# Print the combinations
+start = (0, 0)
+end = (2, 2)
+
+#for i in range(len(combinations)):
+#    couple = combinations[i]
+#    start = couple[0]
+#    end = couple[1]
+#    print(solve_puzzle(Puzzle_1, start, end))
+
+
+print(solve_puzzle(Puzzle_1, start, end))
