@@ -36,6 +36,9 @@ def path_get(puzzle, bfs_path, num_rows, num_columns, i=None, j=None, path=None,
         bfs_index = 0
         path = []
 
+    if bfs_path is None:
+        return False
+
     if increment == len(bfs_path):
         return path
 
@@ -216,3 +219,4 @@ def BFS(graph, start, goal):
                     return new_path
 
             explored.append(node)
+
