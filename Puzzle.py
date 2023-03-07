@@ -5,7 +5,7 @@
 def solve_puzzle(puzzle, start, end):
 
     if puzzle[start[0]][start[1]] == '#':
-        return False
+        return None
 
     num_rows = len(puzzle)
     num_colum = len(puzzle[0])
@@ -219,5 +219,3 @@ def BFS(graph, start, goal):
                     return new_path
 
             explored.append(node)
-
-
