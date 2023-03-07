@@ -257,41 +257,6 @@ def get_directions(tuples):
 
 
 
-Puzzle = [
- ['-', '-', '-', '-'],
- ['-', '-', '-', '-'],
- ['-', '-', '-', '-'],
- ['-', '-', '-', '-']
-]
-
-Puzzle_1 = [
- ['-', '-', '-'],
- ['-', '-', '-'],
- ['-', '-', '-']
-]
-
-import itertools
-
-# Define the matrix
-matrix = [(i, j) for i in range(3) for j in range(3)]
-
-# Generate all possible combinations of the matrix
-combinations = list(itertools.combinations(matrix, 2))
-
-# Print the combinations
-start = (0, 2)
-end = (0, 2)
-
-#for i in range(len(combinations)):
-#    couple = combinations[i]
-#    start = couple[0]
-#    end = couple[1]
-#    print(solve_puzzle(Puzzle_1, start, end))
-
-print(solve_puzzle(Puzzle_1, start, end))
-
-
-
 
 
 
