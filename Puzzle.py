@@ -1,5 +1,5 @@
 # Name: Peter Orndoff
-# Description: CS 325 A8
+# Description: Portfolio Puzzle Implementation
 # Date: March 4th 2023
 
 def solve_puzzle(puzzle, start, end):
@@ -267,11 +267,3 @@ def get_directions(tuples):
         else:
             past_vector = tuples[k]
             current_vector = tuples[k + 1]
-
-
-
-
-
-
-
-

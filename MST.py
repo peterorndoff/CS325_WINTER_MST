@@ -1,7 +1,7 @@
 
 # Name: Peter Orndoff
 # Description: Prims Algorithm implementation. With a lot help from Explorations code LOL help.
-# Date: May 6th 2023
+# Date: March 6th 2023
 
 def Prims(G):
     INF = 9999999
