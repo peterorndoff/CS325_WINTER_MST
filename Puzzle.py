@@ -4,6 +4,10 @@
 
 def solve_puzzle(puzzle, start, end):
 
+    if start == end:
+        return None
+
+
     if puzzle[start[0]][start[1]] == '#':
         return None
 
@@ -262,8 +266,8 @@ Puzzle = [
 
 Puzzle_1 = [
  ['-', '-', '-'],
- ['-', '#', '-'],
- ['-', '#', '-']
+ ['-', '-', '-'],
+ ['-', '-', '-']
 ]
 
 import itertools
@@ -275,8 +279,8 @@ matrix = [(i, j) for i in range(3) for j in range(3)]
 combinations = list(itertools.combinations(matrix, 2))
 
 # Print the combinations
-start = (0, 0)
-end = (2, 2)
+start = (0, 2)
+end = (0, 2)
 
 #for i in range(len(combinations)):
 #    couple = combinations[i]
