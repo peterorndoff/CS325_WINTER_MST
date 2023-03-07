@@ -3,8 +3,6 @@
 # Date: March 4th 2023
 
 def solve_puzzle(puzzle, start, end):
-
-
     if puzzle[start[0]][start[1]] == '#':
         return None
 
@@ -31,7 +29,6 @@ def solve_puzzle(puzzle, start, end):
 
 
 def path_get(puzzle, bfs_path, num_rows, num_columns, i=None, j=None, path=None, bfs_index=None, increment=None):
-
     if i is None:
         increment = 0
         i = 0
@@ -63,7 +60,6 @@ def path_get(puzzle, bfs_path, num_rows, num_columns, i=None, j=None, path=None,
 
 
 def puzzle_converter(puzzle, num_rows, num_columns, i=None, j=None, integer=None, num_graph=None):
-
     if i is None:
         i = 0
         j = 0
@@ -100,7 +96,6 @@ def puzzle_converter(puzzle, num_rows, num_columns, i=None, j=None, integer=None
 
 
 def puzzle_graph_converter(puzzle, num_rows, num_colum, graph=None, increment=None, j=None, i=None):
-
     if graph is None:
         graph = {}
         increment = 0
@@ -125,7 +120,6 @@ def puzzle_graph_converter(puzzle, num_rows, num_colum, graph=None, increment=No
 
 
 def adjacent(puzzle, num_rows, num_colum, i, j, adj=None):
-
     if adj is None:
         adj = []
 
@@ -195,9 +189,7 @@ def adjacent(puzzle, num_rows, num_colum, i, j, adj=None):
     return adj
 
 
-
 def BFS(graph, start, goal):
-
     explored = []
 
     # Queue for  BFS
@@ -223,8 +215,8 @@ def BFS(graph, start, goal):
 
             explored.append(node)
 
-def get_directions(tuples):
 
+def get_directions(tuples):
     cardinal = ''
 
     past_vector = tuples[0]
@@ -234,20 +226,24 @@ def get_directions(tuples):
 
     for k in range(len(tuples)):
 
-
-        if current_vector[0] != past_vector[0]:
-            cardinal += 'R'
-
         if current_vector[1] != past_vector[1]:
 
             if current_vector[1] > past_vector[1]:
+                cardinal += 'R'
+            else:
+                cardinal += 'L'
+
+
+        if current_vector[0] != past_vector[0]:
+
+            if current_vector[0] > past_vector[0]:
                 cardinal += 'D'
             else:
                 cardinal += 'U'
 
-        if k+1 == len(tuples):
+        if k + 1 == len(tuples):
             return cardinal
 
         else:
             past_vector = tuples[k]
-            current_vector = tuples[k+1]
+            current_vector = tuples[k + 1]
